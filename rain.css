@@ -3,16 +3,18 @@
 body {
     font-family: "Yusei Magic", sans-serif;
 
+    margin: 0;
+
 }
 
-
+/* タイトル画面 */
 .hero {
     width: 100%;
     height: 100vh;
     position: relative;
     overflow: hidden;
 }
-
+/* タイトル背景 */
 .headerimage {
     width: 100%;
     height: 100%;
@@ -20,7 +22,7 @@ body {
     position: relative;
     z-index: 0;
 }
-
+/* タイトル文字 */
 .hero strong {
     position: absolute;
     top: 50%;
@@ -32,8 +34,16 @@ body {
     z-index: 2;
 }
 
+@media screen and (max-width: 1200px) {
+    .hero strong {
+        font-size: 60px;
+    }
+    
+    
+}
 
 
+/* 目次コンテナー */
 .navlist {
     display: flex;
     justify-content: flex-end;
@@ -64,7 +74,21 @@ body {
     border-bottom: 2px solid azure;
 }
 
+@media screen and (max-width: 1200px) {
+    .navlist {
+        
+        padding: 0;
+        margin: 0;
+    }
+    .navitem {
+        font-size: 15px;
+    }
+}
 
+
+
+
+/* About */
 .headline {
     text-align: center;
     font-size: 40px;
@@ -79,18 +103,36 @@ body {
 .aboutcaption {
     padding-left: 40px;
 }
-/* .aboutheadline {
+.aboutheadline {
     margin: 0 0 20px;
     font-size: 30px;
-} */
+}
 
+@media screen and (max-width: 1200px) {
+    .about {
+        display: block;
+
+    }
+    .aboutimage {
+        max-width: 100%;
+    }
+    .headline {
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+
+
+
+/* Feature */
 .section.section-secounday {
     background: #efefef;
 }
 
 .grid {
     display: flex;
-    align-items: center;
+    align-items: start;
     
 
 }
@@ -98,7 +140,7 @@ body {
     list-style: none;
 
 }
-
+/* 横幅の設定 */
 .grid-col-2 > .grid-item {
     width: 50%;
 }
@@ -111,6 +153,24 @@ body {
     width: 25%;
 }
 
+@media screen and (max-width: 1200px) {
+    .grid {
+        display: block;
+        padding: 0;
+    }
+    .grid-col-2 > .grid-item,
+    .grid-col-3 > .grid-item, 
+    .grid-col-4 > .grid-item {
+        width: 100%;
+        margin: 20px 0;
+    
+}
+    
+
+}
+
+
+
 
  .feature {
     text-align: center;
@@ -118,6 +178,7 @@ body {
 .feature-headline {
     font-weight: bold;
     margin-bottom: 30px;
+    
 }
 .feature-img {
     margin: 20px 0;
@@ -128,7 +189,10 @@ body {
 }
 
 
-.card {}
+
+
+
+/* Blog */
 .card-link{
     display: block;
     color: #333;
@@ -150,13 +214,10 @@ body {
 
 }
 .card-image {
-    width: 100%;
+    width: 90%;
     height: auto;
+    
 }
-.card-info {}
-.card-time {}
-.card-headline {}
-.card-description {}
 
 .avator {
     display: flex;
@@ -172,7 +233,7 @@ body {
     margin: 0;
 }
 
-
+/* Blogページへのボタン */
 .button {
     display: inline-block;
     color: #fff;
@@ -197,26 +258,28 @@ body {
     text-align: center;
 }
 
-
+/* アンケート */
 .survey {
     text-align: center;
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 40px;
+    padding: 30px;
+
 }
 
 .form {
-    background-color: #7b74a79e;
-
+    background-color: #267d8e9e;
+    
     font-weight: bold;
     width: 100%;
-    padding: 10px;
+    padding: 0;
 }
 
 .form-inner {
-    max-width: 800px;
-    width: 100%;
+    width: 700px;
     margin: 0 auto;
 }
+
+
 
 .form-row {
     display: flex;
@@ -226,46 +289,42 @@ body {
     
     margin-left: auto;
     margin-right: auto;
+   
 }
 
-.form-row label,
+.form-row label:first-child,
 .form-title {
     width: 250px;
     display: inline-block;
 }
- 
+
 
 
 .input,
 .select,
 .textarea {
-    width: 400px;
-    border-radius: 5px;
+    width: 300px;
     box-sizing: border-box;
+    border-radius: 5px;
     padding: 10px;
     border: 1px solid #f6f3f3;
-
 }
 
-
-
-
-.radio {
-    margin: 0 10px;
-}
 
 .checkbox-group {
     display: flex;
-    flex-wrap: wrap;
-    width: 400px;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
 
 }
 
-
-
-
 .textarea {
     min-height: 100px;
+}
+
+.radio {
+    margin: 0 10px;
 }
 
 label,
@@ -273,12 +332,32 @@ button {
     cursor: pointer;
 }
 
-
 .form-button {
     text-align: center;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+    .form-row {
+        display: flex;
+        flex-direction: column;        
+    }
+    .form-inner {
+        width: 100%;
+        align-items: center;
+    }
+    
 }
 
 
+
+
+
+
+
+
+
+/* リンク */
 .link-container {
     display: flex;
     flex-direction: column;
@@ -298,7 +377,7 @@ button {
 
 
 
-
+/* フッター */
 .footer {
     background-color: #efefef;
     color: #333;
@@ -362,6 +441,37 @@ button {
 
 }
 
+@media screen and (max-width: 1200px) {
+    .footer-map{
+        display: block;
+        padding: 0;
+        width: 100%;
+        
+        
+    }
+    .footer-map > iframe {
+        width: 100%;
+        
+    
+    }
+    .rain {
+        width: 30px;
+        height: 30px;
+
+    }
+    .footer-maplogo {
+        font-size: 15px;
+    }
+    .footer-mapinfo {
+        width: 100%;
+        padding: 0;
+    }
+
+    .footer-copy,
+    .footer-line {
+        padding: 0;
+    }
+}
 
 
 
@@ -370,8 +480,7 @@ button {
 
 
 
-
-
+/* TOPボタン */
 .top-button a {
     color: azure;
     font-size: 24px;

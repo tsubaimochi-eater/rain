@@ -9,29 +9,39 @@ body {
 
 /* タイトル画面 */
 .hero {
+    /* 要素の幅を親要素の幅に対して100%に広げました */
     width: 100%;
+    /* 高さを画面いっぱいのサイズに指定しました */
     height: 100vh;
+    /*  .heroを.hero strong (タイトル文字)の配置の基準にしました*/
     position: relative;
+    /* はみ出した画像を見えなくしました */
     overflow: hidden;
 }
 /* タイトル背景 */
 .headerimage {
+    /* 親である.heroいっぱいに幅と高さを広げました */
     width: 100%;
     height: 100%;
+    /* 画像の比率を崩さず枠いっぱいに敷き詰めました */
     object-fit: cover;
-    position: relative;
+    
+    /* 重なり順を一番奥に指定しました */
     z-index: 0;
 }
 /* タイトル文字 */
 .hero strong {
+    /* .heroを基準として上下左右から中央の位置に文字を配置しました */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    /* フォントの設定 */
     font-size: 120px;
     color: azure;
     font-weight: bold;
-    z-index: 2;
+    /* 重なり順を先ほどの画像の手前にしました */
+    z-index: 1;
 }
 
 @media screen and (max-width: 1200px) {
@@ -45,38 +55,49 @@ body {
 
 /* 目次コンテナー */
 .navlist {
+    /* 子要素を横並びにできるようにしました */
     display: flex;
+    /* 要素の並び方を右端に寄せるよう指定しました */
     justify-content: flex-end;
+    /* 交差軸に対して中央揃えにしました */
     align-items: center;
+    /* 箇条書きの最初の点を消しました */
     list-style: none;
-
+    
+    /* 画面に固定しました */
     position: fixed;
+    /* 画面の上と右端に固定させました */
     top: 0;
     right: 0;
     
 
 }
-
 .navitem a {
+    /* インライン要素のaタグに領域を持たせました */
     display: block;
+    /* 間隔、色の指定をしました */
     margin-left: 10px;
     padding: 10px;
     color: azure;
     background-color: rgb(14, 53, 113);
+    /* 下線を消しました */
     text-decoration: none;
+    /* 文字の太さを変え、ボタンの角を丸くしました */
     font-weight: bold;
     border-radius: 5px;
+    /* 下線を透明にしておいて、時間差でカーソルを合わせると下線が出るようにしました */
     border-bottom: 2px solid transparent;
     transition: .6s;
 }
 
 .navitem a:hover {
+    /* 時間差で下線が現れた後の設定 */
     border-bottom: 2px solid azure;
 }
 
 @media screen and (max-width: 1200px) {
     .navlist {
-        
+        /* 微調整です */
         padding: 0;
         margin: 0;
     }
@@ -90,26 +111,32 @@ body {
 
 /* About */
 .headline {
+    /* h1の文字を中央揃えにしました */
     text-align: center;
+    /* フォントの設定 */
     font-size: 40px;
     font-weight: bold;
 
 }
 .about {
+    /* 画像と文章を横並べにしました */
     display: flex;
     
 }
 
 .aboutcaption {
+    /* 文字と画像に間隔をあけました */
     padding-left: 40px;
 }
 .aboutheadline {
+    /* タイトル文字と文章に間隔をあけました */
     margin: 0 0 20px;
     font-size: 30px;
 }
 
 @media screen and (max-width: 1200px) {
     .about {
+        /* フレックスボックスを解除しました */
         display: block;
 
     }
@@ -127,20 +154,22 @@ body {
 
 /* Feature */
 .section.section-secounday {
+    /* 背景色 */
     background: #efefef;
 }
 
 .grid {
+    /* 画像と記事を横並べにできるようにしました */
     display: flex;
-    align-items: start;
     
-
 }
 .grid-item {
+    /* 箇条書きの最初の点を消しました */
     list-style: none;
 
 }
 /* 横幅の設定 */
+/* 親要素に対して子要素が２つの場合は2等分、３つの場合は３等分と、親要素に対する子要素の割合が均等になるように指定しています */
 .grid-col-2 > .grid-item {
     width: 50%;
 }
@@ -155,6 +184,7 @@ body {
 
 @media screen and (max-width: 1200px) {
     .grid {
+        /* フレックスボックスを解除しました */
         display: block;
         padding: 0;
     }
@@ -173,18 +203,23 @@ body {
 
 
  .feature {
+    /* 要素の中の文字や画像を中央揃えにしています */
     text-align: center;
  }
 .feature-headline {
+    /* フォントの太さを変えました */
     font-weight: bold;
+    /* 見出しと画像との間隔をあけました */
     margin-bottom: 30px;
     
 }
 .feature-img {
+    /* 画像の上と下に間隔をあけました */
     margin: 20px 0;
 }
 
 .feature-description {
+    /* 文章だけ左寄せにしました */
     text-align: left;
 }
 
@@ -194,107 +229,146 @@ body {
 
 /* Blog */
 .card-link{
+    /* aタグをブロック要素にして.card-link全体をクリックできるようにしています */
     display: block;
     color: #333;
+    /* 下線を消しました */
     text-decoration: none;
+    /* 子要素の.card-label、Newの基準位置に指定しています */
     position: relative;
+    /* 時間差で色が変わるようにしています */
     transition: .6s;
 }
 .card-link:hover {
+    /* 時間差で変わった後の色です */
     background-color: #eee;
 }
 
 .card-label {
+    /* 先程指定したrelativeの中で指定した位置に配置できます */
     position: absolute;
+    left: 0;
+    top: 0;
+    /* Newの色や背景色の指定 */
     background-color: #999;
     color: #fff;
-    display: block;
+    /* 余白を設定しました */
     padding: 5px 10px;
+    /* フォントの大きさを変えました */
     font-size: 12px;
 
 }
 .card-image {
+    /* 画像の幅を親要素の90％にしました */
     width: 90%;
+    /* 画像の縦と横の幅の比率を維持しています */
     height: auto;
     
 }
 
 .avator {
+    /* 要素を横並びにしました */
     display: flex;
+    /* 並びが不自然だったので逆並びにしました */
     flex-direction: row-reverse;
+    /* 交差軸で中央揃えにしました */
     align-items: center;
+    /* 要素を主軸の始めから並べています */
     justify-content: start;
 
 }
 .avator-name {
+    /* アイコンと名前の距離をあけました */
     padding-left: 15px;
 }
 .avator-image {
+    /* ddタグに元々ついているmarginをリセットしました */
     margin: 0;
 }
 
 /* Blogページへのボタン */
 .button {
+    /* インライン要素とブロック要素の性質を併せ持たせることで、のちにボタンを中央に移動したり、上下に間隔をつけられるようにしています */
     display: inline-block;
+    /* 文字色、太さ、背景色 */
     color: #fff;
     font-weight: bold;
     background: #333;
+    /* 文字を中央に揃えました */
     text-align: center;
+    /* 余白をつけました */
     padding: 15px 60px;
+    /* ボタンの下の間隔をあけました */
     margin-bottom: 30px;
+    /* 下線を消しました */
     text-decoration: none;
+    /* ボタンの角を丸くしました */
     border-radius: 5px;
+    /* ボタンに影をつけ、時間差で消えるようにしました */
     box-shadow: 5px 5px 5px #bbb;
     transition: .6s;
 
 }
 
 .button:hover {
+    /* カーソルをボタンに合わせた後に消えるようにしました */
     box-shadow: 0 0 0 #bbb;
 }
 
 .section-button {
+    /* ボタンの上に間隔をつけています */
     margin-top: 40px;
+    /* ボタンを中央に移動させています */
     text-align: center;
 }
 
 /* アンケート */
 .survey {
+    /* テキストを中央揃えにしています */
     text-align: center;
+    /* フォントのサイズを変えました */
     font-size: 40px;
+    /* テキストに余白をつけました */
     padding: 30px;
 
 }
 
 .form {
+    /* 背景色、文字の太さ */
     background-color: #267d8e9e;
     
     font-weight: bold;
-    width: 100%;
-    padding: 0;
+
+   
 }
 
 .form-inner {
+    /* 全体の横幅を指定しています */
     width: 700px;
+    /* 左右に間隔を自動でつけて中央に配置しています */
     margin: 0 auto;
 }
 
 
 
 .form-row {
+    /* 項目と入力欄や選択肢等と横並びにしています */
     display: flex;
+    /* 項目と入力欄等を交差軸で中央揃えにしています */
     align-items: center;
-
+    /* 各項目と入力欄等に間隔をつけています */
     margin-bottom: 15px;
     
-    margin-left: auto;
-    margin-right: auto;
+    
    
 }
 
+
 .form-row label:first-child,
 .form-title {
+    /* ラベルの横幅を揃えています */
     width: 250px;
+    /* ラベルをインラインブロックにし、横幅を指定できるようにしています */
     display: inline-block;
 }
 
@@ -303,48 +377,65 @@ body {
 .input,
 .select,
 .textarea {
+    /* 入力欄等を300pxに固定 */
     width: 300px;
+    /* paddingも含めて同じサイズに揃うようにしました */
     box-sizing: border-box;
+    /* 入力欄の角を丸くしました */
     border-radius: 5px;
+    /* 枠線の中の文字との間に余白をつけました */
     padding: 10px;
+    /* 枠線のデザインの設定 */
     border: 1px solid #f6f3f3;
 }
 
 
 .checkbox-group {
+    /* チェックボックスをフレックスボックスにして並べます */
     display: flex;
+    /* 縦並びに並べます */
     flex-direction: column;
+    /* 各項目の間隔をあけます */
     gap: 10px;
+    /* 入力欄と同じ幅に揃えます */
     width: 300px;
 
 }
 
 .textarea {
+    /* テキストエリアの最低の縦幅を設定します */
     min-height: 100px;
 }
 
 .radio {
+    /* ラジオボタンに間隔をつけました */
     margin: 0 10px;
 }
 
 label,
 button {
+    /* ラベルの上とボタンの上にカーソルを合わせると指マークに変わるようにします */
     cursor: pointer;
 }
 
 .form-button {
+    /* 主軸に対して中央に揃えます */
     text-align: center;
+    /* 上に間隔をあけました */
     margin-top: 30px;
 }
 
 @media screen and (max-width: 1200px) {
     .form-row {
+        /* 要素をフレックスボックスで並べます */
         display: flex;
+        /* 要素を縦に並べます */
         flex-direction: column;        
     }
     .form-inner {
+        /* 横幅を指定します */
         width: 100%;
-        align-items: center;
+       
     }
     
 }
@@ -359,20 +450,25 @@ button {
 
 /* リンク */
 .link-container {
+    /* 要素をフレックスボックスににして並べます */
     display: flex;
+    /* フレックスボックスを縦に並べます */
     flex-direction: column;
+    /* 交差軸が開始する位置に揃えます */
     align-items: flex-start;
-
 
 }
 .link-items {
-    display: inline-block;
+    /* 文字色 */
     color: #333;
+    /* 下線を消します */
     text-decoration: none;
+    /* 時間差で下線をつけます */
     border-bottom: 2px solid transparent;
     transition: .6s;
 }
 .link-items:hover {
+    /* 時間差で下線をつけたあとの設定 */
     color: rgb(19, 2, 37);
     border-bottom: 2px solid rgb(19, 2, 37);
 }
@@ -382,19 +478,24 @@ button {
 
 /* フッター */
 .footer {
+    /* 色の設定 */
     background-color: #efefef;
     color: #333;
 }
 .footer-map {
+    /* 要素を横並びにします */
     display: flex;
+    /* 交差軸に対して中央にそろえます */
     align-items: center;
+    /* 主軸方向の中央に揃えます */
     justify-content: center;
-
+    /* 間隔や余白の設定 */
     margin: 0;
     padding: 40px 15px;
 }
 
 .footer-map iframe {
+    /* 幅の設定 */
     width: 60%;
 }
 
@@ -405,19 +506,23 @@ button {
 
 
 .footer-mapinfo {
+    /* 幅と余白の設定 */
     width: 40%;
 
     padding: 15px;
     
 }
 .footer-maplogo{
+    /* フォントの設定 */
     font-size: 25px;
     font-weight: bold;
-
+    /* 要素をフレックスボックスで並べます */
     display: flex;
+    /* 交差軸に対して中央に揃えます */
     align-items: center;
 }
 .rain {
+    /* 画像のサイズや感覚の設定 */
     width: 60px;
     height: 60px;
 
@@ -432,20 +537,26 @@ button {
     font-style: normal;
 }
 .footer-mapaddress a {
+    /* 文字色 */
     color: #333;
 }
 .footer-line {
+    /* フッターラインの色 */
     border-color: #58565c;
 }
 .footer-copy {
+    /* フレックスボックスを解除しています */
     display: block;
+    /* 主軸に対して中央に揃えます */
     text-align: center;
+    /* 余白 */
     padding: 10px;
 
 }
 
 @media screen and (max-width: 1200px) {
     .footer-map{
+        /* フレックスボックスを解除しました */
         display: block;
         padding: 0;
         width: 100%;
@@ -485,20 +596,24 @@ button {
 
 /* TOPボタン */
 .top-button a {
+    /* 色やサイズの設定 */
     color: azure;
     font-size: 24px;
     background-color: rgb(14, 53, 113);
+    /* 角を丸くしています */
     border-radius: 5px;
+    /* 下線を消しています */
     text-decoration: none;
+    /* 時間差で下線が現れるようにしています */
     border-bottom: 2px solid transparent;
     transition: .6s;
-
+    /* 固定する場所を指定しています */
     position: fixed;
     right: 0;
     bottom: 0;
 }
 
 .top-button a:hover {
-    
+    /* 時間差で下線が現れた後の設定です */
     border-bottom: 2px solid azure;
 }
